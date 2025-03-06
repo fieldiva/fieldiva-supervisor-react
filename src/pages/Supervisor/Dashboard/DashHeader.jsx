@@ -5,7 +5,7 @@ const DashHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="header-section flex justify-between py-5 items-center">
+    <div className="header-section flex justify-between py-5 items-center bg-gray-100 px-[50px] fixed w-full z-10">
       {/* Left Section */}
       <div className="left flex items-center">
         <a className="block w-[108px] h-[24px]">

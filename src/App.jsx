@@ -9,7 +9,7 @@ import Test from "./pages/Supervisor/Dashboard/test";
 const DashboardLayout = () => {
   return (
     <>
-      <div className="h-5 px-[50px]">
+      <div className="h-5 bg-gray-100">
         <DashHeader />
         <Outlet />
       </div>
