@@ -9,7 +9,6 @@ const Dashboard = () => {
   return (
     <div>
     <div className="px-[50px] bg-gray-100">
-      <Outlet />
       <DashboardGraph />
       <TaskCompletion />
     </div>

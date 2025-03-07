@@ -71,9 +71,14 @@ export default function TaskCompletion() {
       legend: { display: false },
     },
     scales: {
+      x: {
+        grid: {display: false},
+        border: {display: false}
+      },
       y: {
         beginAtZero: true,
-        ticks: { stepSize: 700 },
+        ticks: { stepSize: 1000 },
+        border: {display: false}
       },
     },
   };

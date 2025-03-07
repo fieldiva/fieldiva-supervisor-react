@@ -9,11 +9,14 @@ const DashHeader = () => {
       {/* Left Section */}
       <div className="left flex items-center">
         <a className="block w-[108px] h-[24px]">
-          <img src="assets/Vector.png" alt="Logo" className="block w-full" />
+          <img src="/assets/Vector.png" alt="Logo" className="block w-full" />
         </a>
 
         {/* Hamburger Menu for Mobile */}
-        <button className="md:hidden ml-4" onClick={() => setMenuOpen(!menuOpen)}>
+        <button
+          className="md:hidden ml-4"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
           <Menu className="w-6 h-6 text-gray-700" />
         </button>
 
@@ -23,16 +26,18 @@ const DashHeader = () => {
             menuOpen ? "flex" : "hidden"
           } md:ml-6`} // Added spacing here
         >
-          <li>
-            <a className="text-sm px-2 py-2 bg-[#0052CC] text-[#fff] rounded-sm block">Dashboard</a>
+          <li className="cursor-pointer">
+            <a className="text-sm px-2 py-2 bg-[#0052CC] text-[#fff] rounded-sm block">
+              Dashboard
+            </a>
           </li>
-          <li>
+          <li className="cursor-pointer">
             <a className="text-sm block">Project</a>
           </li>
-          <li>
+          <li className="cursor-pointer">
             <a className="text-sm block">Field users</a>
           </li>
-          <li>
+          <li className="cursor-pointer">
             <a className="text-sm block">Report</a>
           </li>
         </ul>
@@ -43,17 +48,29 @@ const DashHeader = () => {
         <ul className="flex gap-[10px] items-center">
           <li>
             <a className="block w-[28px] h-[28px]">
-              <img src="assets/settings.svg" alt="Settings" className="block w-full" />
+              <img
+                src="/assets/settings.svg"
+                alt="Settings"
+                className="block w-full"
+              />
             </a>
           </li>
           <li>
             <a className="block w-[28px] h-[28px]">
-              <img src="assets/warning.svg" alt="Warning" className="block w-full" />
+              <img
+                src="/assets/warning.svg"
+                alt="Warning"
+                className="block w-full"
+              />
             </a>
           </li>
           <li>
             <a className="block w-[24px] h-[24px]">
-              <img src="assets/f-icon.svg" alt="Profile" className="block w-full" />
+              <img
+                src="/assets/f-icon.svg"
+                alt="Profile"
+                className="block w-full"
+              />
             </a>
           </li>
         </ul>

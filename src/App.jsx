@@ -3,7 +3,8 @@ import "./App.css";
 import LoginPage from "./pages/Supervisor/auth/LoginPage";
 import Dashboard from "./pages/Supervisor/Dashboard";
 import DashHeader from "./pages/Supervisor/Dashboard/DashHeader";
-import Test from "./pages/Supervisor/Dashboard/test";
+import Project from "./pages/Supervisor/Project";
+import ListView from "./pages/Supervisor/Project/ListView";
 
 // Layout for Dashboard Pages
 const DashboardLayout = () => {
@@ -17,6 +18,14 @@ const DashboardLayout = () => {
   );
 };
 
+const ProjectLayout = () => {
+  return (
+    <>
+      <Outlet />
+    </>
+  );
+};
+
 function App() {
   const router = createBrowserRouter([
     {
@@ -24,16 +33,26 @@ function App() {
       element: <LoginPage />,
     },
     {
-      path: "/dashboard",
+      path: "/supervisor",
       element: <DashboardLayout />,
       children: [
         {
-          index: true,
+          path: "",
           element: <Dashboard />,
         },
         {
-          path: "datas",
-          element: <Test />,
+          path: "projects",
+          element: <ProjectLayout />,
+          children: [
+            {
+              path: "",
+              element: <Project />,
+            },
+            {
+              path: "listView",
+              element: <ListView />
+            }
+          ],
         },
       ],
     },
