@@ -38,7 +38,7 @@ const FilterSection = () => {
                 </span>
                 <a className="text-sm">Sort</a>
               </li>
-              <li className="flex items-center gap-1 bg-white w-full md:w-auto p-2 rounded-sm">
+              <li className="flex items-center gap-1 bg-white w-full md:w-auto px-2 py-1 rounded-sm">
                 <span className="w-[32px]">
                   <img src="/assets/filter.svg" alt="filter" />
                 </span>

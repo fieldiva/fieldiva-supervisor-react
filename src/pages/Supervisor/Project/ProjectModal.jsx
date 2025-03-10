@@ -18,7 +18,7 @@ const ProjectModal = ({ visible, onClose }) => {
       onCancel={onClose}
       footer={null}
       centered
-      maskStyle={{ backdropFilter: "none" }}
+      styles={{ backdropFilter: "none" }}
       zIndex={1050}
       width={600}
       closeIcon={false}
