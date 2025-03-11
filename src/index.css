@@ -1,23 +1,40 @@
 @media (min-width: 1510px) and (max-width: 1752px) {
-    .login-text {
-      width: 35%;
-    }
+  .login-text {
+    width: 35%;
   }
-  @media (min-width: 1018px) and (max-width: 1406px) {
-    .login-text {
-      width: 38%;
-    }
+}
+@media (min-width: 1018px) and (max-width: 1406px) {
+  .login-text {
+    width: 38%;
   }
-  @media (min-width: 1406px) and (max-width: 1528px) {
-    .login-text {
-        width: 38%;
-      }
+}
+@media (min-width: 1406px) and (max-width: 1528px) {
+  .login-text {
+    width: 38%;
   }
-  @media (min-width: 1026px) and (max-width: 1386px) {
-    .login-text {
-      width: 52%;
-    }
-    form div {
-        width: 56%;
-    }
+}
+@media (min-width: 1026px) and (max-width: 1386px) {
+  .login-text {
+    width: 52%;
   }
+  form div {
+    width: 56%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1116px) {
+  .filter-section-div {
+    flex-wrap: wrap;
+  }
+}
+
+.custom-placeholder::placeholder {
+  color: #1a1a1a !important;
+}
+.create-btn .ant-upload {
+  width: 100%;
+}
+
+.create-btn button {
+  width: 100%;
+}

@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { Menu } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { changeMenu, changeSubMenu } from "../../../Redux/Reducers/HeaderReducer";
 
 const DashHeader = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const menu = useSelector((state) => state?.header?.menu);
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -26,13 +32,38 @@ const DashHeader = () => {
             menuOpen ? "flex" : "hidden"
           } md:ml-6`} // Added spacing here
         >
-          <li className="cursor-pointer">
-            <a className="text-sm px-2 py-2 bg-[#0052CC] text-[#fff] rounded-sm block">
+          <li
+            className="cursor-pointer"
+            onClick={() => {
+              navigate("/supervisor");
+              dispatch(changeMenu("dashboard"));
+              dispatch(changeSubMenu("mapView"));
+            }}
+          >
+            <a
+              className={`text-sm rounded-sm block ${
+                menu === "dashboard" ? "bg-[#0052CC] text-[#fff] px-2 py-2" : ""
+              }`}
+            >
               Dashboard
             </a>
           </li>
-          <li className="cursor-pointer">
-            <a className="text-sm block">Project</a>
+          <li
+            className={`cursor-pointer rounded-sm block ${
+              menu === "project" ? "bg-[#0052CC] text-[#fff] px-2 py-2" : ""
+            }`}
+            onClick={() => {
+              navigate("projects/mapView");
+              dispatch(changeMenu("project"));
+            }}
+          >
+            <a
+              className={`text-sm block bg-${
+                menu === "project" ? "[#0052CC]" : ""
+              }`}
+            >
+              Project
+            </a>
           </li>
           <li className="cursor-pointer">
             <a className="text-sm block">Field users</a>

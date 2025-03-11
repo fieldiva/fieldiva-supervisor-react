@@ -1,5 +1,6 @@
 import React from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import { useSelector } from "react-redux";
 
 const mapContainerStyle = {
   width: "100%",
@@ -73,19 +74,21 @@ const markers = [
   { id: 5, lat: 13.0795, lng: 80.268, value: 100, color: "gray" },
   { id: 6, lat: 13.085, lng: 80.2605, value: 100, color: "gray" },
   { id: 7, lat: 13.081, lng: 80.27, value: 0, color: "gray" }, // Example critical point
-  {id: 8, lat: 9.9312, lng: 76.2673, value: 27, color: "gray"}
+  { id: 8, lat: 9.9312, lng: 76.2673, value: 27, color: "gray" },
 ];
 
 const MapView = () => {
+  const filterModal = useSelector((state) => state?.modal?.listFilter);
+  const apiKey = import.meta.env.VITE_APIKEY;
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyAn05BMgxZvX86FMZUndtKNGqzr_XyY5P0",
+    googleMapsApiKey: apiKey,
   });
 
   if (loadError) return <div>Error loading maps</div>;
   if (!isLoaded) return <div>Loading maps...</div>;
 
   return (
-    <div className="bg-white">
+    <div className={`bg-white ${filterModal ? "blur-xs" : ""}`}>
       <div className="px-[12px]">
         <GoogleMap
           mapContainerStyle={mapContainerStyle}
