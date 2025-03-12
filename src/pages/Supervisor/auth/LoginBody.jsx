@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 const LoginBody = () => {
+  const navigate = useNavigate();
   return (
     <div className="login-body pt-[150px] pb-[50px] text-center">
       <h1 className="text-[40px] text-[#000] leading-[1.3] font-normal">
@@ -42,7 +45,7 @@ const LoginBody = () => {
         </div>
 
         {/* Login Button */}
-        <button className="w-[90%] md:w-[50%] lg:w-[30%] bg-[#0052CC] text-[#fff] py-2 rounded-md">
+        <button className="w-[90%] md:w-[50%] lg:w-[30%] bg-[#0052CC] text-[#fff] py-2 rounded-md" onClick={() => navigate("/supervisor")}>
           Login
         </button>
       </form>

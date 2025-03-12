@@ -2,7 +2,10 @@ import { useState } from "react";
 import { Menu } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { changeMenu, changeSubMenu } from "../../../Redux/Reducers/HeaderReducer";
+import {
+  changeMenu,
+  changeSubMenu,
+} from "../../../Redux/Reducers/HeaderReducer";
 
 const DashHeader = () => {
   const dispatch = useDispatch();
@@ -36,37 +39,45 @@ const DashHeader = () => {
             className="cursor-pointer"
             onClick={() => {
               navigate("/supervisor");
-              dispatch(changeMenu("dashboard"));
+              dispatch(changeMenu("supervisor"));
               dispatch(changeSubMenu("mapView"));
             }}
           >
             <a
               className={`text-sm rounded-sm block ${
-                menu === "dashboard" ? "bg-[#0052CC] text-[#fff] px-2 py-2" : ""
+                menu === "supervisor" ? "bg-[#0052CC] text-[#fff] px-2 py-2" : ""
               }`}
             >
               Dashboard
             </a>
           </li>
           <li
-            className={`cursor-pointer rounded-sm block ${
-              menu === "project" ? "bg-[#0052CC] text-[#fff] px-2 py-2" : ""
-            }`}
+            className={`cursor-pointer`}
             onClick={() => {
               navigate("projects/mapView");
               dispatch(changeMenu("project"));
             }}
           >
             <a
-              className={`text-sm block bg-${
-                menu === "project" ? "[#0052CC]" : ""
+              className={`text-sm rounded-sm block ${["project", "listView", "mapView"].includes(menu) ? "bg-[#0052CC] text-[#fff] px-2 py-2" : ""
               }`}
             >
               Project
             </a>
           </li>
-          <li className="cursor-pointer">
-            <a className="text-sm block">Field users</a>
+          <li
+            className={`cursor-pointer`}
+            onClick={() => {
+              navigate("fieldUsers");
+              dispatch(changeMenu("fieldUsers"));
+            }}
+          >
+            <a
+              className={`text-sm rounded-sm block ${["fieldUsers", "addNewStaff", "viewMore"].includes(menu) ? "bg-[#0052CC] text-[#fff] px-2 py-2" : ""
+              }`}
+            >
+              Field users
+            </a>
           </li>
           <li className="cursor-pointer">
             <a className="text-sm block">Report</a>

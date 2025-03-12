@@ -10,6 +10,9 @@ import MapView from "./pages/Supervisor/Project/MapView";
 import { Provider } from "react-redux";
 import store from "./Redux/store";
 import FieldUsers from "./pages/Supervisor/FieldUsers";
+import FieldUserLayout from "./RouteLayouts/FieldUserLayout";
+import Profile from "./pages/Supervisor/FieldUsers/Profile";
+import ProfileEdit from "./pages/Supervisor/FieldUsers/ProfileEdit";
 
 function App() {
   const router = createBrowserRouter([
@@ -41,8 +44,22 @@ function App() {
         },
         {
           path: "fieldUsers",
-          element: <FieldUsers />
-        }
+          element: <FieldUserLayout />,
+          children: [
+            {
+              path: "",
+              element: <FieldUsers />,
+            },
+            {
+              path: "addNewStaff",
+              element: <Profile />
+            }, 
+            {
+              path: "viewMore",
+              element: <ProfileEdit />
+            }
+          ],
+        },
       ],
     },
   ]);

@@ -28,6 +28,12 @@
   }
 }
 
+@media (max-width: 724px) {
+  .status-btn {
+    white-space: nowrap;
+  }
+}
+
 .custom-placeholder::placeholder {
   color: #1a1a1a !important;
 }
@@ -37,4 +43,8 @@
 
 .create-btn button {
   width: 100%;
+}
+
+.info-window button{
+  display: none;
 }
