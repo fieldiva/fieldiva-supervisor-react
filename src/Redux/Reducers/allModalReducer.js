@@ -3,11 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 const allModalSlice = createSlice({
     name: "modal",
     initialState: {
+        projectModal: true,
         listDelete: false,
         listEdit: false,
         listFilter: false,
         createTask: false,
-        assignTask: false
+        assignTask: false,
+        reportFilter: false
     },
     reducers: {
         toggleDelete: (state)=> {
@@ -24,9 +26,15 @@ const allModalSlice = createSlice({
         },
         toggleAssignTask: (state) => {
             state.assignTask = !state.assignTask
+        },
+        toggleProjectModal: (state) => {
+            state.projectModal = !state.projectModal
+        },
+        toggleReportFilter: (state) => {
+            state.reportFilter = !state.reportFilter
         }
     }
 })
 
-export const {toggleDelete, toggleListEdit, toggleListFilter, toggleCreateTask, toggleAssignTask} = allModalSlice.actions
+export const {toggleDelete, toggleListEdit, toggleListFilter, toggleCreateTask, toggleAssignTask, toggleProjectModal, toggleReportFilter} = allModalSlice.actions
 export default allModalSlice.reducer

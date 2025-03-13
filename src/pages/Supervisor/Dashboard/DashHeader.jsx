@@ -45,7 +45,9 @@ const DashHeader = () => {
           >
             <a
               className={`text-sm rounded-sm block ${
-                menu === "supervisor" ? "bg-[#0052CC] text-[#fff] px-2 py-2" : ""
+                menu === "supervisor"
+                  ? "bg-[#0052CC] text-[#fff] px-2 py-2"
+                  : ""
               }`}
             >
               Dashboard
@@ -59,7 +61,10 @@ const DashHeader = () => {
             }}
           >
             <a
-              className={`text-sm rounded-sm block ${["project", "listView", "mapView"].includes(menu) ? "bg-[#0052CC] text-[#fff] px-2 py-2" : ""
+              className={`text-sm rounded-sm block ${
+                ["project", "listView", "mapView"].includes(menu)
+                  ? "bg-[#0052CC] text-[#fff] px-2 py-2"
+                  : ""
               }`}
             >
               Project
@@ -73,14 +78,31 @@ const DashHeader = () => {
             }}
           >
             <a
-              className={`text-sm rounded-sm block ${["fieldUsers", "addNewStaff", "viewMore"].includes(menu) ? "bg-[#0052CC] text-[#fff] px-2 py-2" : ""
+              className={`text-sm rounded-sm block ${
+                ["fieldUsers", "addNewStaff", "viewMore"].includes(menu)
+                  ? "bg-[#0052CC] text-[#fff] px-2 py-2"
+                  : ""
               }`}
             >
               Field users
             </a>
           </li>
-          <li className="cursor-pointer">
-            <a className="text-sm block">Report</a>
+          <li
+            className="cursor-pointer"
+            onClick={() => {
+              navigate("report");
+              dispatch(changeMenu("report"));
+            }}
+          >
+            <a
+              className={`text-sm rounded-sm block ${
+                menu === "report"
+                  ? "bg-[#0052CC] text-[#fff] px-2 py-2"
+                  : ""
+              }`}
+            >
+              Report
+            </a>
           </li>
         </ul>
       </div>

@@ -16,11 +16,11 @@ const ProjectLayout = () => {
   const editModal = useSelector((state) => state?.modal?.listEdit);
   const createTask = useSelector((state) => state?.modal?.createTask);
   const assignTask = useSelector((state) => state?.modal?.assignTask);
-  const [modalVisible, setModalVisible] = useState(true);
+  const projectModal = useSelector(state => state?.modal?.projectModal)
   return (
     <div
       className={`px-[50px] bg-gray-100 flex flex-col md:flex-row gap-6 ${
-        modalVisible || deleteModal || editModal || createTask ? "blur-xs" : ""
+        projectModal || deleteModal || editModal || createTask ? "blur-xs" : ""
       }`}
     >
       <div className="w-full md:w-[70%]">
@@ -37,8 +37,6 @@ const ProjectLayout = () => {
         {/* <AssignTab /> */}
       </div>
       <ProjectModal
-        visible={modalVisible}
-        onClose={() => setModalVisible(false)}
       />
       <TaskDeleteModal />
       <TaskEditModal />

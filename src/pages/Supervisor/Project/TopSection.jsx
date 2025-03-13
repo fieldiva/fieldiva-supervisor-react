@@ -1,19 +1,26 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { changeSubMenu } from "../../../Redux/Reducers/HeaderReducer";
-import { toggleCreateTask } from "../../../Redux/Reducers/allModalReducer";
+import { toggleCreateTask, toggleProjectModal } from "../../../Redux/Reducers/allModalReducer";
 
 const TopSection = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const projectModal = useSelector((state) => state?.modal?.projectModal);
   const subMenu = useSelector((state) => state?.header?.subMenu);
   return (
     <div className="map-header pt-[100px] bg-white px-[24px] flex flex-wrap md:flex-nowrap items-center justify-between">
       <div className="left w-full flex flex-wrap justify-between items-center gap-4">
         <div className="relative w-full sm:w-[300px]">
-          <select className="appearance-none py-[8px] px-[6px] w-full border border-black bg-white pr-8 rounded-sm">
-            <option value="">Change Project name</option>
-          </select>
+          <div
+            className="relative w-full border border-black bg-white py-[8px] px-[6px] pr-8 rounded-sm cursor-pointer"
+            onClick={() => dispatch(toggleProjectModal())}
+          >
+            Change Project name
+            {/* <span className="absolute right-2 top-1/2 transform -translate-y-1/2">
+              ▼
+            </span> */}
+          </div>
           <div className="absolute inset-y-2 right-2 flex items-center pointer-events-none bg-[#F7F7F7] rounded-full p-[5px] w-[24px] h-[24px]">
             <img src="/assets/arrow.svg" alt="arrow" />
           </div>
@@ -52,7 +59,10 @@ const TopSection = () => {
                 </a>
               </li>
             </div>
-            <li className="py-2 px-3 border border-[#0052CC] rounded-sm cursor-pointer" onClick={() => dispatch(toggleCreateTask())}>
+            <li
+              className="py-2 px-3 border border-[#0052CC] rounded-sm cursor-pointer"
+              onClick={() => dispatch(toggleCreateTask())}
+            >
               <a className="py-0.5 px-3 text-sm">Create</a>
             </li>
           </ul>

@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { Modal, Button, Input, Radio, Space } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleProjectModal } from "../../../Redux/Reducers/allModalReducer";
 
-const ProjectModal = ({ visible, onClose }) => {
+const ProjectModal = () => {
+  const visible = useSelector(state => state?.modal?.projectModal)
+  const dispatch = useDispatch()
   const [selectedProject, setSelectedProject] = useState(null);
   const [search, setSearch] = useState("");
 
@@ -11,6 +15,10 @@ const ProjectModal = ({ visible, onClose }) => {
     "Project name 3",
     "Project name 4",
   ];
+
+  const onClose = () => {
+    dispatch(toggleProjectModal())
+  }
 
   return (
     <Modal

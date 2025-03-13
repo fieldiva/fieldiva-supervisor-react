@@ -13,6 +13,7 @@ import FieldUsers from "./pages/Supervisor/FieldUsers";
 import FieldUserLayout from "./RouteLayouts/FieldUserLayout";
 import Profile from "./pages/Supervisor/FieldUsers/Profile";
 import ProfileEdit from "./pages/Supervisor/FieldUsers/ProfileEdit";
+import Report from "./pages/Supervisor/Report";
 
 function App() {
   const router = createBrowserRouter([
@@ -60,6 +61,10 @@ function App() {
             }
           ],
         },
+        {
+          path: "report",
+          element: <Report />
+        }
       ],
     },
   ]);
